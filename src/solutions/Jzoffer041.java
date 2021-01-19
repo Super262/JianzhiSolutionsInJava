@@ -1,6 +1,6 @@
 package solutions;
 
-public class Jzoffer040 {
+public class Jzoffer041 {
     public boolean findNumberIn2DArray(int[][] matrix, final int target) {
         if(matrix == null){
             return false;

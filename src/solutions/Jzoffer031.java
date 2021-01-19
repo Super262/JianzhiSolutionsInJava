@@ -1,6 +1,6 @@
 package solutions;
 
-public class Jzoffer030 {
+public class Jzoffer031 {
     public int findRepeatNumber(int[] nums) {
         boolean[] repeated = new boolean[nums.length];
         for (int num : nums) {
