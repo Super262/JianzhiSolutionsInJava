@@ -1,11 +1,8 @@
-import solutions.Jzoffer101;
-import solutions.Jzoffer121;
+import solutions.Jzoffer131;
 
 public class Main {
     public static void main(String[] args){
-        Jzoffer121 jzoffer = new Jzoffer121();
-        String word = "aaa";
-        char[][] board = {{'a','a'}};
-        System.out.println(jzoffer.exist(board, word));
+        Jzoffer131 jzoffer = new Jzoffer131();
+        System.out.println(jzoffer.movingCount(7, 2, 3));
     }
 }
