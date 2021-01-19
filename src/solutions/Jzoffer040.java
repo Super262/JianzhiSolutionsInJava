@@ -16,9 +16,20 @@ public class Jzoffer040 {
             return false;
         }
 
-        int i = 0, j = 0;
+        int i = 0, j = width - 1, num = 0;
 
-
+        while (i < height && j >= 0){
+            num = matrix[i][j];
+            if (num == target) {
+                return true;
+            }
+            else if (num > target){
+                --j;
+            }
+            else {
+                ++i;
+            }
+        }
 
         return false;
     }
