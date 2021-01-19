@@ -1,7 +1,5 @@
 package solutions;
 
-import java.util.Stack;
-
 public class Jzoffer061 {
 
     private static class ListNode {
