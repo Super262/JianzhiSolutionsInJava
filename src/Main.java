@@ -1,4 +1,4 @@
-import solutions.DynamicProgramming.Jzoffer191;
+import solutions.DP.Jzoffer191;
 
 public class Main {
     public static void main(String[] args){

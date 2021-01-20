@@ -1,4 +1,4 @@
-package solutions.DynamicProgramming;
+package solutions.DP;
 
 public class Jzoffer141 {
     public int cuttingRope(int n) {
