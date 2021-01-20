@@ -8,9 +8,8 @@ public class Jzoffer201 {
 
         final int strLength = s.length();
         boolean isFloat = false;
-        boolean hasExponent = false;
-        boolean hasBase = false;
-
+        boolean hasValidExponent = false;
+        boolean hasValidBase = false;
         int i = 0;
 
         // You should remember that the string may have many spaces.
@@ -38,7 +37,7 @@ public class Jzoffer201 {
             if (currentChar == ' '){
                 break;
             }else if (('0' <= currentChar && currentChar <= '9')) {
-                hasBase = true;
+                hasValidBase = true;
                 ++i;
             } else if (currentChar == '.') {
                 if(!isFloat){
@@ -49,19 +48,19 @@ public class Jzoffer201 {
                 }
             } else if (currentChar == 'E' || currentChar == 'e') {
                 ++i;
-                hasExponent = true;
+                hasValidExponent = true;
                 break;
             } else {
                 return false;
             }
         }
-        if (!hasBase) {
+        if (!hasValidBase) {
             return false;
         }
 
         //Test the exponent.
-        if (hasExponent) {
-            hasExponent = false;
+        if (hasValidExponent) {
+            hasValidExponent = false;
             if(i >= strLength){
                 return false;
             }
@@ -75,14 +74,14 @@ public class Jzoffer201 {
                 currentChar = s.charAt(i);
                 if (('0' <= currentChar && currentChar <= '9')) {
                     ++i;
-                    hasExponent = true;
+                    hasValidExponent = true;
                 } else if (currentChar == ' ') {
                     break;
                 }else {
                     return false;
                 }
             }
-            if(!hasExponent){
+            if(!hasValidExponent){
                 return false;
             }
         }
