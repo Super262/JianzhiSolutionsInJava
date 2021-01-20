@@ -8,7 +8,7 @@ public class Jzoffer221 {
              val = x;
          }
      }
-     public ListNode getKthFromEnd(ListNode head, int k) {
+     public ListNode getKthFromEnd(final ListNode head, int k) {
          ListNode sliceHead = head;
          ListNode sliceEnd = sliceHead;
          while (k > 0 && sliceEnd != null){
