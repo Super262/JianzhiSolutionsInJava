@@ -23,21 +23,10 @@ public class Jzoffer341 {
             tempResult.add(root.val);
             result.add(tempResult);
         } else {
-            List<List<Integer>> tempResult;
-            if(root.left != null){
-                tempResult = pathSum(root.left, sum - root.val);
-                if(tempResult.size() > 0){
-                    result.addAll(tempResult);
-                }
-            }
-            if(root.right != null){
-                tempResult = pathSum(root.right, sum - root.val);
-                if(tempResult.size() > 0){
-                    result.addAll(tempResult);
-                }
-            }
-            for (List path : result){
-                path.add(0, root.val);
+            result.addAll(pathSum(root.right, sum - root.val));
+            result.addAll(pathSum(root.left, sum - root.val));
+            for (List<Integer> path : result) {
+                path.add(0,root.val);
             }
         }
         return result;
