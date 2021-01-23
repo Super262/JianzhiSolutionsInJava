@@ -1,4 +1,6 @@
-package solutions.DP;
+package solutions;
+
+// Dynamic Programming
 
 public class Jzoffer191 {
     public boolean isMatch(final String s, final String p) {
