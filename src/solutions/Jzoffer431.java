@@ -9,7 +9,7 @@ public class Jzoffer431 {
 
         long high = n / base;
         long cur = n % base;
-        long low = n % digit;
+        long low = 0;
 
         while(low != n){
             if(cur == 0){
