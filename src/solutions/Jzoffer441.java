@@ -1,7 +1,7 @@
 package solutions;
 
 public class Jzoffer441 {
-    public int findNthDigit(int n) {
+    public int findNthDigit(final int n) {
         if(n < 10){
             return n;
         }
@@ -21,13 +21,11 @@ public class Jzoffer441 {
             maxIndex = (maxValue - minValue + 1) * numWidth;
         }
 
-        long blockIndex = currentIndex / numWidth;
-        long blockValue = minValue + blockIndex - 1;
+        long blockValue = minValue + (currentIndex / numWidth) - 1;
         int blockOffset = (int)(currentIndex % numWidth);
         if(blockOffset != 0){
             ++blockValue;
-            String num = String.valueOf(blockValue);
-            return num.charAt(blockOffset - 1) - '0';
+            return String.valueOf(blockValue).charAt(blockOffset - 1) - '0';
         } else {
             return (int)(blockValue % 10);
         }
