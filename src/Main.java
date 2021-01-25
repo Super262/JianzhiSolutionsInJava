@@ -1,8 +1,8 @@
-import solutions.Jzoffer441;
+import solutions.Jzoffer461;
 
 public class Main {
     public static void main(String[] args){
-        Jzoffer441 jzoffer = new Jzoffer441();
-        System.out.println(jzoffer.findNthDigit(1000000000));
+        Jzoffer461 jzoffer = new Jzoffer461();
+        System.out.println(jzoffer.translateNum(12258));
     }
 }
