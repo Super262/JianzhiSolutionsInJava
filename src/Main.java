@@ -1,8 +1,8 @@
-import solutions.Jzoffer481;
+import solutions.Jzoffer491;
 
 public class Main {
     public static void main(String[] args){
-        Jzoffer481 jzoffer = new Jzoffer481();
-        System.out.println(jzoffer.lengthOfLongestSubstring("abba"));
+        Jzoffer491 jzoffer = new Jzoffer491();
+        System.out.println(jzoffer.nthUglyNumber(10));
     }
 }
