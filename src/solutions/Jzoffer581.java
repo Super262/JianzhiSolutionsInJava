@@ -10,33 +10,27 @@ public class Jzoffer581 {
 
         int sLen = s.length();
         LinkedList<String> stack = new LinkedList<>();
-        int wordStart = 0;
-        int wordEnd = 0;
-        while (wordEnd < sLen){
-            if (s.charAt(wordEnd) == ' ') {
-                if (wordEnd - wordStart > 0) {
-                    stack.addLast(s.substring(wordStart, wordEnd));
-                    wordStart = wordEnd;
-                } else {
-                    ++wordEnd;
-                    ++wordStart;
+        int wordEnd = sLen;
+        int wordStart = wordEnd - 1;
+        while (wordStart >= 0){
+            if (s.charAt(wordStart) == ' ') {
+                if(wordEnd - wordStart > 1){
+                    stack.addLast(s.substring(wordStart + 1, wordEnd));
                 }
-
-            } else {
-                ++wordEnd;
+                wordEnd = wordStart;
             }
+            --wordStart;
         }
-        if (wordEnd - wordStart> 0) {
-            stack.addLast(s.substring(wordStart, wordEnd));
+        if(wordEnd - wordStart > 1){
+            stack.addLast(s.substring(wordStart + 1, wordEnd));
         }
-
         StringBuilder tempStr = new StringBuilder(sLen);
-        while(stack.size() > 1){
-            tempStr.append(stack.removeLast());
-            tempStr.append(' ');
-        }
         if(!stack.isEmpty()){
-            tempStr.append(stack.removeLast());
+            tempStr.append(stack.removeFirst());
+        }
+        while(!stack.isEmpty()){
+            tempStr.append(' ');
+            tempStr.append(stack.removeFirst());
         }
 
         return tempStr.toString();

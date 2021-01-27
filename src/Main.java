@@ -1,8 +1,9 @@
 import solutions.Jzoffer562;
+import solutions.Jzoffer581;
 
 public class Main {
     public static void main(String[] args){
-        Jzoffer562 jzoffer = new Jzoffer562();
-        System.out.println(jzoffer.singleNumber(new int[]{3,4,3,3}));
+        Jzoffer581 jzoffer = new Jzoffer581();
+        System.out.println(jzoffer.reverseWords("  hello world!  "));
     }
 }
