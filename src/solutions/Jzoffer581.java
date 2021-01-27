@@ -7,23 +7,30 @@ public class Jzoffer581 {
         if(s == null || s.isEmpty()){
             return "";
         }
+
         int sLen = s.length();
-        StringBuilder tempStr = new StringBuilder(sLen);
         LinkedList<String> stack = new LinkedList<>();
-        for(int i = 0; i < sLen; ++i){
-            if (s.charAt(i) == ' ') {
-                if (tempStr.length() > 0) {
-                    stack.addLast(tempStr.toString());
-                    tempStr.setLength(0);
+        int wordStart = 0;
+        int wordEnd = 0;
+        while (wordEnd < sLen){
+            if (s.charAt(wordEnd) == ' ') {
+                if (wordEnd - wordStart > 0) {
+                    stack.addLast(s.substring(wordStart, wordEnd));
+                    wordStart = wordEnd;
+                } else {
+                    ++wordEnd;
+                    ++wordStart;
                 }
+
             } else {
-                tempStr.append(s.charAt(i));
+                ++wordEnd;
             }
         }
-        if (tempStr.length() > 0) {
-            stack.addLast(tempStr.toString());
-            tempStr.setLength(0);
+        if (wordEnd - wordStart> 0) {
+            stack.addLast(s.substring(wordStart, wordEnd));
         }
+
+        StringBuilder tempStr = new StringBuilder(sLen);
         while(stack.size() > 1){
             tempStr.append(stack.removeLast());
             tempStr.append(' ');
@@ -31,6 +38,7 @@ public class Jzoffer581 {
         if(!stack.isEmpty()){
             tempStr.append(stack.removeLast());
         }
+
         return tempStr.toString();
     }
 }
