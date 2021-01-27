@@ -14,10 +14,12 @@ public class Jzoffer591 {
         for(int i = 0; i < k; ++i){
             addEleToDeque(nums[i], deque);
         }
-        result[0] = deque.peekFirst();
+        if(!deque.isEmpty()){
+            result[0] = deque.peekFirst();
+        }
 
         for(int i = 1; i < result.length; ++i){
-            if(nums[i - 1] == deque.peekFirst()){
+            if(!deque.isEmpty() && nums[i - 1] == deque.peekFirst()){
                 deque.removeFirst();
             }
             result[i] = addEleToDeque(nums[i + k - 1], deque);
@@ -40,6 +42,10 @@ public class Jzoffer591 {
                 deque.addLast(ele);
             }
         }
-        return deque.peekFirst();
+        if(!deque.isEmpty()){
+            return deque.peekFirst();
+        } else {
+            return -1;
+        }
     }
 }
