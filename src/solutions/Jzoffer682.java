@@ -2,7 +2,7 @@ package solutions;
 
 import java.util.LinkedList;
 
-public class Jzoffer681 {
+public class Jzoffer682 {
     private static class TreeNode {
         int val;
         TreeNode left;
@@ -18,8 +18,8 @@ public class Jzoffer681 {
         }
         LinkedList<TreeNode> pPath = new LinkedList<>();
         LinkedList<TreeNode> qPath = new LinkedList<>();
-        getPathInBST(root, p.val, pPath);
-        getPathInBST(root, q.val, qPath);
+        getPathInBT(root, p.val, pPath);
+        getPathInBT(root, q.val, qPath);
         TreeNode commonNode  = null;
         while(!pPath.isEmpty() && !qPath.isEmpty() && pPath.peekFirst().val == qPath.peekFirst().val){
             commonNode = pPath.peekFirst();
@@ -29,7 +29,7 @@ public class Jzoffer681 {
         return commonNode;
     }
 
-    private boolean getPathInBST(final TreeNode root,final int target,LinkedList<TreeNode> path){
+    private boolean getPathInBT(final TreeNode root,final int target,LinkedList<TreeNode> path){
         if(root == null){
             return false;
         }
@@ -37,20 +37,13 @@ public class Jzoffer681 {
             path.addFirst(root);
             return true;
         }
-        if(root.val < target){
-            if(getPathInBST(root.right, target, path)){
-                path.addFirst(root);
-                return true;
-            } else {
-                return false;
-            }
-        } else{
-            if(getPathInBST(root.left, target, path)){
-                path.addFirst(root);
-                return true;
-            } else {
-                return false;
-            }
+
+        if(getPathInBT(root.left, target, path) || getPathInBT(root.right, target, path)){
+            path.addFirst(root);
+            return true;
+        } else {
+            return false;
         }
     }
+
 }
