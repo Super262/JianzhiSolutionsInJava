@@ -1,7 +1,6 @@
 package solutions;
 
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class Jzoffer371 {
     private static class TreeNode {
@@ -19,20 +18,17 @@ public class Jzoffer371 {
 
         // Encodes a tree to a single string.
         public String serialize(TreeNode root) {
-            if(root == null){
-                return "[]";
-            }
             StringBuilder result = new StringBuilder("[");
-            Queue<TreeNode> queue = new LinkedList<>();
+            LinkedList<TreeNode> queue = new LinkedList<>();
             TreeNode current;
-            queue.add(root);
+            queue.addLast(root);
             while (!queue.isEmpty()){
-                current = queue.poll();
+                current = queue.removeFirst();
                 if(current != null){
                     result.append(current.val);
                     result.append(',');
-                    queue.add(current.left);
-                    queue.add(current.right);
+                    queue.addLast(current.left);
+                    queue.addLast(current.right);
                 } else {
                     result.append("null,");
                 }
@@ -44,65 +40,44 @@ public class Jzoffer371 {
 
         // Decodes your encoded data to tree.
         public TreeNode deserialize(String data) {
-            if (data == null){
-                return null;
-            }
-
-            final int dataLength = data.length();
-            if(dataLength < 3){
-                return null;
-            }
-
-            Queue<TreeNode> queue = new LinkedList<>();
-            int dataIterator = 1;
-            TreeNode head = null;
-            boolean onCurrentRootLeftChild = true;
+            LinkedList<TreeNode> nodesList = new LinkedList<>();
+            TreeNode root = null;
+            final int dataLen = data.length();
+            int i = 1;
+            boolean isNullValue = false;
             StringBuilder tempValue = new StringBuilder();
-
-
-            while (dataIterator < dataLength - 1){
-                switch (data.charAt(dataIterator)) {
-                    case ',': {
-                        ++dataIterator;
-                        break;
-                    }
-
-                    case 'n': {
-                        if(onCurrentRootLeftChild){
-                            onCurrentRootLeftChild = false;
-                        } else{
-                            onCurrentRootLeftChild = true;
-                            queue.poll();
-                        }
-                        dataIterator += 4;
-                        break;
-                    }
-
-                    default: {
-                        while (dataIterator <dataLength - 1 && data.charAt(dataIterator) != ','){
-                            tempValue.append(data.charAt(dataIterator));
-                            ++dataIterator;
-                        }
-                        TreeNode newNode = new TreeNode(Integer.parseInt(tempValue.toString()));
+            while(i < dataLen){
+                if(data.charAt(i) == 'n'){
+                    i += 4;
+                    isNullValue = true;
+                } else if(data.charAt(i) == ',' || data.charAt(i) == ']'){
+                    if(isNullValue){
+                        isNullValue = false;
+                        nodesList.addLast(null);
+                    } else{
+                        nodesList.addLast(new TreeNode(Integer.parseInt(tempValue.toString())));
                         tempValue.setLength(0);
-                        if (queue.isEmpty()){
-                            head = newNode;
-                        } else {
-                            if (onCurrentRootLeftChild){
-                                queue.peek().left = newNode;
-                                onCurrentRootLeftChild = false;
-                            } else {
-                                queue.peek().right = newNode;
-                                onCurrentRootLeftChild = true;
-                                queue.poll();
-                            }
-                        }
-                        queue.add(newNode);
-                        break;
                     }
+                    ++i;
+                } else {
+                    tempValue.append(data.charAt(i));
+                    isNullValue = false;
+                    ++i;
                 }
             }
-            return head;
+            root = nodesList.removeFirst();
+            LinkedList<TreeNode> queue = new LinkedList<>();
+            queue.addLast(root);
+            while(!queue.isEmpty()){
+                TreeNode current = queue.removeFirst();
+                if(current != null){
+                    current.left = nodesList.removeFirst();
+                    current.right = nodesList.removeFirst();
+                    queue.addLast(current.left);
+                    queue.addLast(current.right);
+                }
+            }
+            return root;
         }
     }
 }
