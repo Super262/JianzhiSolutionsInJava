@@ -1,4 +1,4 @@
-package AllSolutions;
+package HardProblems;
 
 public class Jzoffer161 {
     public double myPow(double x,int n) {
