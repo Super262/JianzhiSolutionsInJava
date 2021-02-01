@@ -3,44 +3,35 @@ package AllSolutions;
 // Dynamic Programming
 
 public class Jzoffer191 {
-    public boolean isMatch(final String s, final String p) {
-        final int strLength = s.length();
-        final int patternLength = p.length();
-
-        boolean[][] f = new boolean[strLength + 1][patternLength + 1];
+    public boolean isMatch(String s,String p) {
+        if (s == null || p == null) {
+            return false;
+        }
+        final int sLen = s.length();
+        final int pLen = p.length();
+        boolean[][] f = new boolean[sLen + 1][pLen + 1];
         f[0][0] = true;
-
-        for (int i = 0; i <= strLength; ++i) {
-            for (int j = 1; j <= patternLength; ++j) {
-                if(p.charAt(j - 1) == '*') {
-                    if(matches(s, p, i, j - 1)) {
-                        f[i][j] = f[i - 1][j] || f[i][j - 2];
+        for (int i = 0; i <= sLen; ++i) {
+            for (int j = 1; j <= pLen; ++j) {
+                if (p.charAt(j - 1) == '*') {
+                    if (j > 1) {
+                        if (i > 0 && (p.charAt(j - 2) == '.' || s.charAt(i - 1) == p.charAt(j - 2))) {
+                            f[i][j] = f[i][j - 2] || f[i - 1][j];
+                        } else {
+                            f[i][j] = f[i][j - 2];
+                        }
+                    } else {
+                        f[i][j] = false;
                     }
-                    else {
-                        f[i][j] = f[i][j - 2];
-                    }
-                }
-                else {
-                    if(matches(s, p, i, j)){
+                } else {
+                    if (i > 0 && (p.charAt(j - 1) == '.' || s.charAt(i - 1) == p.charAt(j - 1))) {
                         f[i][j] = f[i - 1][j - 1];
-                    }
-                    else{
+                    } else {
                         f[i][j] = false;
                     }
                 }
             }
         }
-        return f[strLength][patternLength];
+        return f[sLen][pLen];
     }
-
-    private boolean matches(final String s, final String p, int i, int j){
-        if (i == 0){
-            return j == 0;
-        }
-        if (p.charAt(j - 1) == '.') {
-            return true;
-        }
-        return s.charAt(i - 1) == p.charAt(j - 1);
-    }
-
 }
