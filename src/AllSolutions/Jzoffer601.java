@@ -4,30 +4,35 @@ package AllSolutions;
 // Dynamic Programming
 public class Jzoffer601 {
     public double[] dicesProbability(int n) {
-        final int numType = 6;
-        int[][] tempResult = new int[n + 1][];
-
-        for(int i = 1; i <= n; ++i){
-            tempResult[i] = new int[i * numType + 1];
+        if(n <= 0){
+            return new double[0];
         }
-        for (int i = 1; i < tempResult[1].length; ++i){
-            tempResult[1][i] = 1;
-        }
+        int[][] eventsCount = new int[n + 1][];
+        eventsCount[1] = new int[]{0, 1, 1, 1, 1, 1, 1};
 
-        for (int i = 2; i <= n; ++i){
-            for(int j = i; j < i * numType + 1; ++j){
-                for(int k = 1; k <= numType; ++k){
-                    if(j - k >= i - 1 && j - k < tempResult[i - 1].length){
-                        tempResult[i][j] += tempResult[1][k] * tempResult[i - 1][j - k];
+        int allEvents = 6;
+        int curMax;
+        int prevMax = 6;
+        int prevMin = 1;
+        int tempDis;
+        for(int i = 2; i <= n; ++i){
+            curMax = prevMax + 6;
+            eventsCount[i] = new int[curMax + 1];
+            for(int sum = i; sum <= curMax; ++sum){
+                for(int k = 1; k <= 6; ++k){
+                    tempDis = sum - k;
+                    if(tempDis <= prevMax && tempDis >= prevMin){
+                        eventsCount[i][sum] += eventsCount[1][k] * eventsCount[i - 1][tempDis];
                     }
                 }
             }
+            prevMax = curMax;
+            prevMin = i;
+            allEvents *= 6;
         }
-
-        double[] result = new double[n * 5 + 1];
-        int nCount = (int)Math.pow(numType, n);
-        for(int i = n; i < tempResult[n].length; ++i){
-            result[i - n] = tempResult[n][i] / (double)nCount;
+        double[] result = new double[prevMax - prevMin + 1];
+        for(int i = 0; i < result.length; ++i){
+            result[i] = eventsCount[n][i + n] / (double) allEvents;
         }
         return result;
     }
