@@ -5,11 +5,14 @@ public class Jzoffer061 {
     private static class ListNode {
         int val;
         ListNode next;
-        ListNode(int x) { val = x; }
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 
     public int[] reversePrint(ListNode head) {
-        if(head == null){
+        if (head == null) {
             return new int[0];
         }
         int listLen = 1;
@@ -17,7 +20,7 @@ public class Jzoffer061 {
         // Reverse the list.
         ListNode current = head;
         ListNode next = current.next, prev = null;
-        while (next != null){
+        while (next != null) {
             ++listLen;
             current.next = prev;
             prev = current;
@@ -29,7 +32,7 @@ public class Jzoffer061 {
         // Generate the result.
         int[] result = new int[listLen];
         int i = 0;
-        while (current != null){
+        while (current != null) {
             result[i] = current.val;
             current = current.next;
             ++i;

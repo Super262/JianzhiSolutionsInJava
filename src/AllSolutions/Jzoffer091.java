@@ -26,12 +26,12 @@ public class Jzoffer091 {
         }
 
         public int deleteHead() {
-            if(stack1Size < 1 && stack2Size < 1){
+            if (stack1Size < 1 && stack2Size < 1) {
                 return -1;
             }
-            if(stack2Size < 1){
+            if (stack2Size < 1) {
                 // Use stack2 for output only.
-                while(stack1Size != 0){
+                while (stack1Size != 0) {
                     stack2[++stack2Top] = stack1[stack1Top--];
                     --stack1Size;
                     ++stack2Size;
