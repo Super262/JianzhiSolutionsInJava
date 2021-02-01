@@ -1,4 +1,4 @@
-package AllSolutions;
+package NaughtyProblems;
 
 public class Jzoffer511 {
     private int mergeSort(int[] nums,final int start,final int end,int[] temp) {
@@ -37,3 +37,4 @@ public class Jzoffer511 {
         return mergeSort(nums, 0, nums.length, temp);
     }
 }
+
