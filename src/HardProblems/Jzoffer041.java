@@ -1,7 +1,7 @@
-package AllSolutions;
+package HardProblems;
 
 public class Jzoffer041 {
-    public boolean findNumberIn2DArray(int[][] matrix, final int target) {
+    public boolean findNumberIn2DArray(int[][] matrix, int target) {
         if(matrix == null){
             return false;
         }
