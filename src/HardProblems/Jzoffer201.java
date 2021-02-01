@@ -1,4 +1,4 @@
-package AllSolutions;
+package HardProblems;
 
 public class Jzoffer201 {
     public boolean isNumber(String s) {
