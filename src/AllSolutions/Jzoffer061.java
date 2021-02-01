@@ -2,15 +2,6 @@ package AllSolutions;
 
 public class Jzoffer061 {
 
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public int[] reversePrint(ListNode head) {
         if (head == null) {
             return new int[0];
@@ -38,5 +29,14 @@ public class Jzoffer061 {
             ++i;
         }
         return result;
+    }
+
+    private static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

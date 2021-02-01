@@ -2,16 +2,6 @@ package AllSolutions;
 
 public class Jzoffer071 {
 
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
-
     public TreeNode buildTree(int[] preorder,int[] inorder) {
         return buildSubTree(preorder,inorder,0,0,inorder.length - 1);
     }
@@ -36,5 +26,15 @@ public class Jzoffer071 {
             root.right = buildSubTree(preorder,inorder,rootIndexInpreorder + (rootIndexIninorder - firstIndexIninorder) + 1,rootIndexIninorder + 1,lastIndexIninorder);
         }
         return root;
+    }
+
+    private static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 }

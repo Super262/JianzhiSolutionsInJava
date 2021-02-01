@@ -21,19 +21,19 @@ public class Jzoffer511 {
             }
         }
         final int rightL = j - mid;
-        while(i < mid){
+        while (i < mid) {
             temp[k++] = nums[i++];
             pairsCount += rightL;
         }
-        while(j < end){
+        while (j < end) {
             temp[k++] = nums[j++];
         }
-        System.arraycopy(temp,start, nums, start, end - start);
+        System.arraycopy(temp,start,nums,start,end - start);
         return pairsCount;
     }
 
     public int reversePairs(int[] nums) {
         int[] temp = new int[nums.length];
-        return mergeSort(nums, 0, nums.length, temp);
+        return mergeSort(nums,0,nums.length,temp);
     }
 }

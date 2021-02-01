@@ -1,6 +1,7 @@
 package AllSolutions;
 
-import java.util.*;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class Jzoffer301 {
     private static class MinStack {
@@ -15,12 +16,12 @@ public class Jzoffer301 {
 
         public void push(int x) {
             dataStack.push(x);
-            x = minimalStack.isEmpty() ? x : Math.min(minimalStack.peek(), x);
+            x = minimalStack.isEmpty() ? x : Math.min(minimalStack.peek(),x);
             minimalStack.push(x);
         }
 
         public void pop() {
-            if(!dataStack.isEmpty()){
+            if (!dataStack.isEmpty()) {
                 dataStack.pop();
                 minimalStack.pop();
             }

@@ -6,7 +6,7 @@ public class Jzoffer161 {
         n = Math.abs(n);
         double result = 1;
         while (n != 0) {
-            result *= (n & 1) == 0? 1: x;
+            result *= (n & 1) == 0 ? 1 : x;
             x *= x;
             n >>>= 1;
         }

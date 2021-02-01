@@ -13,19 +13,19 @@ public class Jzoffer592 {
         }
 
         public int max_value() {
-            if(maxValue.isEmpty()){
+            if (maxValue.isEmpty()) {
                 return -1;
-            } else{
+            } else {
                 return maxValue.peekFirst();
             }
         }
 
         public void push_back(int value) {
             data.addLast(value);
-            if(!maxValue.isEmpty() && value > maxValue.peekFirst()){
+            if (!maxValue.isEmpty() && value > maxValue.peekFirst()) {
                 maxValue.clear();
             } else {
-                while(!maxValue.isEmpty() && maxValue.peekLast() < value){
+                while (!maxValue.isEmpty() && maxValue.peekLast() < value) {
                     maxValue.removeLast();
                 }
             }
@@ -33,11 +33,11 @@ public class Jzoffer592 {
         }
 
         public int pop_front() {
-            if(data.isEmpty()){
+            if (data.isEmpty()) {
                 return -1;
-            } else{
+            } else {
                 int value = data.peekFirst();
-                if(!maxValue.isEmpty() && value == maxValue.peekFirst()){
+                if (!maxValue.isEmpty() && value == maxValue.peekFirst()) {
                     maxValue.removeFirst();
                 }
                 data.removeFirst();

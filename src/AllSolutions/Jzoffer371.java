@@ -12,6 +12,7 @@ public class Jzoffer371 {
             val = x;
         }
     }
+
     private static class Codec {
 
         // You don't have to care about extra "null"s;
@@ -22,9 +23,9 @@ public class Jzoffer371 {
             LinkedList<TreeNode> queue = new LinkedList<>();
             TreeNode current;
             queue.addLast(root);
-            while (!queue.isEmpty()){
+            while (!queue.isEmpty()) {
                 current = queue.removeFirst();
-                if(current != null){
+                if (current != null) {
                     result.append(current.val);
                     result.append(',');
                     queue.addLast(current.left);
@@ -46,15 +47,15 @@ public class Jzoffer371 {
             int i = 1;
             boolean isNullValue = false;
             StringBuilder tempValue = new StringBuilder();
-            while(i < dataLen){
-                if(data.charAt(i) == 'n'){
+            while (i < dataLen) {
+                if (data.charAt(i) == 'n') {
                     i += 4;
                     isNullValue = true;
-                } else if(data.charAt(i) == ',' || data.charAt(i) == ']'){
-                    if(isNullValue){
+                } else if (data.charAt(i) == ',' || data.charAt(i) == ']') {
+                    if (isNullValue) {
                         isNullValue = false;
                         nodesList.addLast(null);
-                    } else{
+                    } else {
                         nodesList.addLast(new TreeNode(Integer.parseInt(tempValue.toString())));
                         tempValue.setLength(0);
                     }
@@ -68,9 +69,9 @@ public class Jzoffer371 {
             root = nodesList.removeFirst();
             LinkedList<TreeNode> queue = new LinkedList<>();
             queue.addLast(root);
-            while(!queue.isEmpty()){
+            while (!queue.isEmpty()) {
                 TreeNode current = queue.removeFirst();
-                if(current != null){
+                if (current != null) {
                     current.left = nodesList.removeFirst();
                     current.right = nodesList.removeFirst();
                     queue.addLast(current.left);

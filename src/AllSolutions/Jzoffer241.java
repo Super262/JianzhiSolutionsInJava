@@ -1,21 +1,14 @@
 package AllSolutions;
 
 public class Jzoffer241 {
-    private static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
     public ListNode reverseList(final ListNode head) {
-        if(head == null){
+        if (head == null) {
             return null;
         }
         ListNode previousNode = null;
         ListNode currentNode = head;
         ListNode nextNode = head.next;
-        while(nextNode != null){
+        while (nextNode != null) {
             currentNode.next = previousNode;
             previousNode = currentNode;
             currentNode = nextNode;
@@ -23,5 +16,14 @@ public class Jzoffer241 {
         }
         currentNode.next = previousNode;
         return currentNode;
+    }
+
+    private static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            val = x;
+        }
     }
 }

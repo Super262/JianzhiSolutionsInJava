@@ -5,18 +5,9 @@ import java.util.List;
 import java.util.Queue;
 
 public class Jzoffer323 {
-    private static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
     public List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
-        if (root == null){
+        if (root == null) {
             return result;
         }
         Queue<TreeNode> queue = new LinkedList<>();
@@ -26,20 +17,20 @@ public class Jzoffer323 {
         LinkedList<Integer> tempResult = new LinkedList<>();
         boolean toRight = true;
         queue.add(root);
-        while (!queue.isEmpty()){
-            while (currentLevelSize > 0){
+        while (!queue.isEmpty()) {
+            while (currentLevelSize > 0) {
                 tempNode = queue.poll();
                 --currentLevelSize;
-                if(toRight){
+                if (toRight) {
                     tempResult.addLast(tempNode.val);
                 } else {
                     tempResult.addFirst(tempNode.val);
                 }
-                if (tempNode.left != null){
+                if (tempNode.left != null) {
                     queue.add(tempNode.left);
                     ++tempValue;
                 }
-                if (tempNode.right != null){
+                if (tempNode.right != null) {
                     queue.add(tempNode.right);
                     ++tempValue;
                 }
@@ -51,5 +42,15 @@ public class Jzoffer323 {
             toRight = !toRight;
         }
         return result;
+    }
+
+    private static class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 }

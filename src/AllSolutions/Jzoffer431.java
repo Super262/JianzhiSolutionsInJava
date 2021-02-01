@@ -11,10 +11,10 @@ public class Jzoffer431 {
         long cur = n % base;
         long low = 0;
 
-        while(low != n){
-            if(cur == 0){
+        while (low != n) {
+            if (cur == 0) {
                 countOfDigitOne += (high * digit);
-            } else if(cur == 1){
+            } else if (cur == 1) {
                 countOfDigitOne += high * digit + low + 1;
             } else {
                 countOfDigitOne += (high + 1) * digit;

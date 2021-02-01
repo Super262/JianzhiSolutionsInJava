@@ -2,7 +2,7 @@ package AllSolutions;
 
 public class Jzoffer441 {
     public int findNthDigit(final int n) {
-        if(n < 10){
+        if (n < 10) {
             return n;
         }
 
@@ -13,7 +13,7 @@ public class Jzoffer441 {
         long maxIndex = (maxValue - minValue + 1) * numWidth;
         long currentIndex = n - 9;
 
-        while (currentIndex > maxIndex){
+        while (currentIndex > maxIndex) {
             ++numWidth;
             currentIndex -= maxIndex;
             minValue *= 10;
@@ -22,12 +22,12 @@ public class Jzoffer441 {
         }
 
         long blockValue = minValue + (currentIndex / numWidth) - 1;
-        int blockOffset = (int)(currentIndex % numWidth);
-        if(blockOffset != 0){
+        int blockOffset = (int) (currentIndex % numWidth);
+        if (blockOffset != 0) {
             ++blockValue;
             return String.valueOf(blockValue).charAt(blockOffset - 1) - '0';
         } else {
-            return (int)(blockValue % 10);
+            return (int) (blockValue % 10);
         }
     }
 }
