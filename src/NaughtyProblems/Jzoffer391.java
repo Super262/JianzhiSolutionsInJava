@@ -1,4 +1,4 @@
-package AllSolutions;
+package NaughtyProblems;
 
 public class Jzoffer391 {
     public int majorityElement(int[] nums) {
