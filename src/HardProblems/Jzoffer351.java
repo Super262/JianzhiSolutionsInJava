@@ -1,4 +1,4 @@
-package AllSolutions;
+package HardProblems;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -41,5 +41,4 @@ public class Jzoffer351 {
         }
         return newHead;
     }
-
 }
