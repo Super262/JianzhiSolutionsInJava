@@ -1,4 +1,4 @@
-package HardProblems;
+package NaughtyProblems;
 
 public class Jzoffer161 {
     public double myPow(double x,int n) {

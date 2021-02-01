@@ -1,4 +1,4 @@
-package HardProblems;
+package NaughtyProblems;
 
 public class Jzoffer151 {
     // you need to treat n as an unsigned value

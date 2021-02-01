@@ -1,4 +1,4 @@
-package HardProblems;
+package NaughtyProblems;
 
 public class Jzoffer191 {
     public boolean isMatch(String s,String p) {

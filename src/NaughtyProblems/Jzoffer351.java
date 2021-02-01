@@ -1,4 +1,4 @@
-package HardProblems;
+package NaughtyProblems;
 
 import java.util.HashMap;
 import java.util.Map;

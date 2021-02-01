@@ -1,4 +1,4 @@
-package HardProblems;
+package NaughtyProblems;
 
 public class Jzoffer201 {
     public boolean isNumber(String s) {

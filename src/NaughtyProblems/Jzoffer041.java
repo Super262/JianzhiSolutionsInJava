@@ -1,4 +1,4 @@
-package HardProblems;
+package NaughtyProblems;
 
 public class Jzoffer041 {
     public boolean findNumberIn2DArray(int[][] matrix, int target) {
