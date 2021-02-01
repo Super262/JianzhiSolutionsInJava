@@ -33,7 +33,6 @@ public class Jzoffer511 {
     }
 
     public int reversePairs(int[] nums) {
-        int[] temp = new int[nums.length];
-        return mergeSort(nums,0,nums.length,temp);
+        return mergeSort(nums,0,nums.length, new int[nums.length]);
     }
 }
